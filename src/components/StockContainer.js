@@ -1,11 +1,19 @@
 import React from "react";
 import Stock from "./Stock";
 
-function StockContainer() {
+function StockContainer({ stocks, handleAddToPortfolio }) {
+ console.log(stocks)
   return (
     <div>
       <h2>Stocks</h2>
-      {/* render stock list here*/}
+      {stocks.map(stock => (
+        <Stock
+          onStockClick={handleAddToPortfolio}
+          singleStock={stock}
+          key ={stock.id}
+        
+        />
+      ))}
     </div>
   );
 }
